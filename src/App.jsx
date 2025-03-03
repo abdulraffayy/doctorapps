@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login/Login';
 import ForgetPassword from './ForgetPassword/ForgetPassword';
 import Signup from './Signup/Signup';
-import NavBar from './NavBar/NavBar';
+import Sidebar from './Sidebar/Sidebar';
+import Layout from './Layout/Layout';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <Router>
+        <Layout/>
       
       <Routes>
         <Route path="/Login" element={<Login />} />
@@ -19,7 +21,7 @@ function App() {
         <Route path="/forget-password" element={<ForgetPassword/>} />
         <Route path="/forget-password" element={<ForgetPassword/>} />
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/Navbar" element={<NavBar/>} />
+        <Route path="/Navbar" element={<Sidebar/>} />
 
 
 

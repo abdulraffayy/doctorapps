@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaHome, FaUserAlt, FaCog, FaBell, FaBars } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -27,16 +28,31 @@ const Sidebar = () => {
   );
 };
 
-const SidebarItem = ({ icon, text, isOpen }) => (
+const SidebarItem = ({ icon, text, isOpen, isActive }) => (
   <li>
     <a
       href="#"
-      className="flex items-center space-x-3 text-white hover:bg-gray-700 px-4 py-3 rounded-md transition duration-200"
+      className={`flex items-center space-x-3 px-4 py-3 rounded-md transition duration-300 
+        ${isOpen ? "justify-start" : "justify-center"} 
+        ${isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"}
+      `}
     >
-      {icon}
-      {isOpen && <span>{text}</span>}
+      <span className="text-xl">{icon}</span>
+      {isOpen && <span className="text-base font-medium">{text}</span>}
     </a>
   </li>
 );
+
+
+SidebarItem.propTypes = {
+  icon: PropTypes.node.isRequired,
+  text: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  isActive: PropTypes.bool,
+};
+
+SidebarItem.defaultProps = {
+  isActive: false,
+};
 
 export default Sidebar;

@@ -1,7 +1,7 @@
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import Header from "../Header/Header.jsx";
 
-const Layout = ({ children }) => {
+const Layout = ({ children}) => {
   return (
     <div className="flex">
       <Sidebar />
